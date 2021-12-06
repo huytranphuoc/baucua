@@ -4,6 +4,7 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
+        "babel-version": "babel --version",
         "dev": "nodemon src/index.js --exec babel-node",
         "build": "babel src -d dist",
         "prestart": "babel src -d dist",
