@@ -1,30 +1,30 @@
 // // @flow
 
-// const http = require('http');
-// const logger = require('morgan');
-// const bodyParser = require('body-parser');
-// const express = require('express');
-// const PORT = process.env.PORT || 3002
-// const app = express().listen(PORT, () => console.log('ssssss', PORT));
-// app.use(logger('dev'));
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({
-//     extended: false
-// }));
+const http = require('http');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+const express = require('express');
+const PORT = process.env.PORT || 3002
 
-// const server = http.createServer(app);
-// const io = require('socket.io')(server);
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
-// const HookProcessor = require('./hookProcessor');
-// const LoadTester = require('./loadTester');
+const server = http.createServer(app);
+const io = require('socket.io')(server);
 
-// const process = new HookProcessor('116529085375415_566172007077785', io);
-// const loadTester = new LoadTester(io);
+const HookProcessor = require('./hookProcessor');
+const LoadTester = require('./loadTester');
+
+const process = new HookProcessor('116529085375415_566172007077785', io);
+const loadTester = new LoadTester(io);
 
 
-// app.get('/', (req, res) => {
-//     res.send("Home page. Server running okay.");
-// });
+app.get('/', (req, res) => {
+    res.send("Home page. Server running okay.");
+});
 
 // // For load testing
 // app.get('/load/:num', async(req, res) => {
@@ -64,9 +64,8 @@
 // app.listen(process.env.PORT || 3000, function(){
 //     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 //   });
-const express = require('express')
-const path = require('path')
+// const express = require('express')
+// const path = require('path')
 const PORT = process.env.PORT || 5000
 
-express()
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
