@@ -68,14 +68,10 @@ const bodyParser = require('body-parser');
 const express = require('express')
 const path = require('path')
 
-const server = http.createServer(app);
-const io = require('socket.io')(server);
-
 const HookProcessor = require('./hookProcessor');
 const LoadTester = require('./loadTester');
 
-const process = new HookProcessor('116529085375415_566172007077785', io);
-const loadTester = new LoadTester(io);
+
 
 const PORT = process.env.PORT || 5000
 const app = express();
@@ -84,6 +80,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+const server = http.createServer(app);
+const io = require('socket.io')(server);
+const process = new HookProcessor('116529085375415_566172007077785', io);
+const loadTester = new LoadTester(io);
 // app
 //   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 app.get('/', (req, res) => {
