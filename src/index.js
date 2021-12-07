@@ -4,8 +4,8 @@ const http = require('http');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const express = require('express');
-const PORT = process.env.PORT || 3002
 
+const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -64,8 +64,9 @@ app.get('/', (req, res) => {
 // app.listen(process.env.PORT || 3000, function(){
 //     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 //   });
-// const express = require('express')
-// const path = require('path')
+const express = require('express')
+const path = require('path')
 const PORT = process.env.PORT || 5000
 
-app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
+app
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
