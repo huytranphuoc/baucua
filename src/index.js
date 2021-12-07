@@ -56,9 +56,9 @@ app.post('/notification', async(req, res) => {
     res.status(200).send("OK");
 });
 
-
-app.listen(process.env.PORT || 3000, function() {
-    console.log('Node app is running on port', process.env.PORT);
+const PORT = process.env.PORT || 5000
+app.listen(PORT, function() {
+    console.log('Node app is running on port', PORT);
   });
 
 // app.listen(process.env.PORT || 3000, function(){
