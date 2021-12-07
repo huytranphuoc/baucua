@@ -82,7 +82,7 @@ app.use(bodyParser.urlencoded({
 }));
 const server = http.createServer(app);
 const io = require('socket.io')(server);
-const process = new HookProcessor('116529085375415_566172007077785', io);
+const hookProcessor = new HookProcessor('116529085375415_566172007077785', io);
 const loadTester = new LoadTester(io);
 // app
 //   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
