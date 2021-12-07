@@ -21,8 +21,6 @@ const LoadTester = require('./loadTester');
 const process = new HookProcessor('116529085375415_566172007077785', io);
 const loadTester = new LoadTester(io);
 
-app.set('port', (process.env.PORT || 5000));
-
 app.get('/', (req, res) => {
     res.send("Home page. Server running okay.");
 });
@@ -58,8 +56,8 @@ app.post('/notification', async(req, res) => {
 });
 
 
-app.listen(app.get('port'), function() {
-    console.log('Node app is running on port', app.get('port'));
+app.listen(process.env.PORT || 5000, function() {
+    console.log('Node app is running on port', process.env.PORT);
   });
 
 // app.listen(process.env.PORT || 3000, function(){
