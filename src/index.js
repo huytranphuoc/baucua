@@ -86,8 +86,23 @@ app.use(bodyParser.urlencoded({
 }));
 // app
 //   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
-  app.get('/', (req, res) => {
-    res.send("Home page. Server running okay. 1");
+app.get('/', (req, res) => {
+    res.send("Home page. Server running okay. 2222");
+});
+app.get('/webhook', function(req, res) {
+    if (req.query['hub.verify_token'] === 'anh_hoang_dep_trai_vo_doi') {
+        res.send(req.query['hub.challenge']);
+        return;
+    }
+    res.send('Error, wrong validation token');
+});
+
+app.post('/webhook', async(req, res) => {
+    const hookObject = req.body;
+    console.log(JSON.stringify(hookObject, null, 2));
+    await process.processHook(hookObject);
+
+    res.status(200).send("OK");
 });
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
