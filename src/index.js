@@ -100,7 +100,7 @@ app.get('/webhook', function(req, res) {
 app.post('/webhook', async(req, res) => {
     const hookObject = req.body;
     console.log(JSON.stringify(hookObject, null, 2));
-    await process.processHook(hookObject);
+    await hookProcessor.processHook(hookObject);
 
     res.status(200).send("OK");
 });
