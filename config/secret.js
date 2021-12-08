@@ -1,4 +1,4 @@
 module.exports = {
-    accessToken: '',
+    accessToken: 'EAAEvSMHBRZCkBADkFTB94Herry1ZAUvSFJjVpSEQO077AZC3yjAJkZAxZCtWqsTbDsbOk3eHzduY3O8ZAzBlPKbP406bp7jIrAxOYNhD3LVrvgHfP8KACQC20ByW3vJT0UyqEAZAc8gaPEiiZCDNp9agmgYyBusu8JQhOy7CxB5nuJJTuEDZCqy2tqIlM9ynNYQAZD',
     youtubeAccessToken: ''
 }
