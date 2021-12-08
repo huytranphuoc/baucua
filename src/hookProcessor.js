@@ -64,9 +64,10 @@ class HookProcessor {
         }
     }    
 
-    async processHook(hookObject: { entry: Array < Entry > }) {
+    async processHook(hookObject) {
+        console.log('coincard', hookObject);
         for (const entry of hookObject.entry) {
-            for (const change of entry.changes) {
+            for (const change of entry.changed_fields) {
                 this.processEntryChange(change);
             }
         }
